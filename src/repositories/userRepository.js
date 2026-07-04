@@ -17,18 +17,18 @@ const userRepository = {
         return rows[0][0];
     },
     deletar: async (userId) => {
-        const sql = 'DELETE FROM users WHERE id = ?;';
+        const sql = 'DELETE FROM usuario WHERE id = ?;';
         const resultado = await pool.execute(sql, [userId]);
         return resultado[0];
     },
-    criar: async (name, email, password) => {
-        const sql = 'INSERT INTO users (name, email, password) VALUES (?, ?, ?);';
-        const resultado = await pool.execute(sql, [name.trim(), email.trim().toLowerCase(), password]);
+    criar: async (nome, email, cpf, telefone) => {
+        const sql = 'INSERT INTO usuario (nome, email, cpf, telefone) VALUES (?, ?, ?, ?);';
+        const resultado = await pool.execute(sql, [nome.trim(), email.trim(), cpf.trim(), telefone.trim()]);
         return resultado[0];
     },
-    atualizar: async (userId, name, email, password) => {
-        const sql = 'UPDATE users SET name = ?, email = ?, password = ? WHERE id = ?;';
-        const resultado = await pool.execute(sql, [name.trim(), email.trim().toLowerCase(), password, userId]);
+    atualizar: async (userId, nome, email, telefone) => {
+        const sql = 'UPDATE users SET name = ?, email = ?, telefone = ? WHERE id = ?;';
+        const resultado = await pool.execute(sql, [nome.trim(), email.trim(), cpf.trim(), telefone.trim()]);
         return resultado[0];
     }
 }

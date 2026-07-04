@@ -1,15 +1,17 @@
 class User {
 
     #id;
-    #name;
+    #nome;
+    #cpf;
     #email;
-    #password;
+    #telefone;
 
-    constructor(name, email, password, id = null) {
+    constructor(nome, email, cpf, telefone, id = null) {
         this.#id = id;
-        this.#name = name;
+        this.#nome = nome;
+        this.#cpf = cpf;
         this.#email = email;
-        this.#password = password;
+        this.#telefone = telefone;
     }
 
     // Getters
@@ -17,29 +19,37 @@ class User {
         return this.#id;
     }
 
-    get name() {
-        return this.#name;
+    get nome() {
+        return this.#nome;
+    }
+
+    get cpf() {
+        return this.#cpf;
     }
 
     get email() {
         return this.#email;
     }
 
-    get password() {
-        return this.#password;
+    get telefone() {
+        return this.#telefone;
     }
 
     // Setters
-    set name(newName) {
-        this.#name = newName;
+    set nome(newName) {
+        this.#nome = newName;
+    }
+
+    set cpf(newCpf) {
+        this.#cpf = newCpf;
     }
 
     set email(newEmail) {
         this.#email = newEmail;
     }
 
-    set password(newPassword) {
-        this.#password = newPassword;
+    set telefone(newTelefone) {
+        this.#telefone = newTelefone;
     }
 
 }

@@ -43,7 +43,7 @@ const userService = {
     },
     criarUsuario: async (user) => {
         try {
-            const resultado = await userRepository.criar(user.name, user.email, user.password);
+            const resultado = await userRepository.criar(user.nome, user.email, user.cpf, user.telefone);
             return resultado;
         } catch (error) {
             console.error(error);

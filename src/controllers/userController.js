@@ -67,17 +67,15 @@ const userController = {
         }
     },
     criar: async (req, res) => {
-        const { name, email, password } = req.body;
+        const { nome, email, cpf, telefone } = req.body;
 
-        const hashedPassword = await userService.hashPassword(password);
-
-        const user = new User(name, email, hashedPassword);
+        const user = new User(nome, email, cpf, telefone);
 
         try {
             // validação simples para garantir que name e email não estejam vazios
-            if (name.trim() === "" || email.trim() === "" || password.trim() === "") {
+            if (nome.trim() === "" || email.trim() === "" || cpf.trim() === "" || telefone.trim() === "") {
                 return res.status(400).json({
-                    message: "Nome, email e senha são obrigatórios"
+                    message: "Nome, email telefone e cpf são obrigatórios"
                 });
             }
 
@@ -100,13 +98,13 @@ const userController = {
     },
     atualizar: async (req, res) => {
         const userId = Number(req.params.id);
-        const { name, email, password } = req.body;
+        const { nome, email, cpf, telefone } = req.body;
 
-        const user = new User(name, email, password, userId);
+        const user = new User(nome, email, cpf, telefone, userId);
 
         try {
             // validação simples para garantir que name e email não estejam vazios
-            if (name.trim() === "" || email.trim() === "" || password.trim() === "") {
+            if (nome.trim() === "" || email.trim() === "" || cpf.trim() === "" || telefone.trim() === "") {
                 return res.status(400).json({
                     message: "Nome, email e senha são obrigatórios"
                 });
