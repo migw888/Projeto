@@ -5,6 +5,7 @@ import userRoutes from './routes/userRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import livroRoutes from './routes/livroRoutes.js';
 import autorRoutes from './routes/autorRoutes.js';
+import empRoutes from './routes/empRoutes.js';
 
 const port = 3000;
 
@@ -15,6 +16,7 @@ app.use('/usuarios', userRoutes);
 app.use('/autor', autorRoutes);
 app.use('/auth', authRoutes);
 app.use('/livro', livroRoutes)
+app.use('/emprestimo', empRoutes)
 
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
