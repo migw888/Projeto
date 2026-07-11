@@ -1,4 +1,4 @@
-import userRepository from "../repositories/livroRepository.js";
+import livroRepository from "../repositories/livroRepository.js";
 import livroService from "../services/livroService.js";
 import User from "../models/User.js";
 import Livro from "../models/Livro.js";
@@ -106,7 +106,7 @@ const livroController = {
 
         try {
             // validação simples para garantir que name e email não estejam vazios
-            if (titulo.trim() === "" || isbn.trim() === "" || Ano_publicacao.trim() === ""|| quantidade_disponivel.trim() === "") {
+            if (titulo.trim() === "" || isbn.trim() === "" || Ano_publicacao.trim() === ""|| quantidade_disponivel < 0) {
                 return res.status(400).json({
                     message: "Titulo, isbn, Ano publicação e quantidade disponivel são obrigatórios"
                 });

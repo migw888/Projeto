@@ -34,7 +34,7 @@ const livroService = {
     },
     removerLivro: async (LivroId) => {
         try {
-            const resultado = await LivroRepository.deletar(LivroId);
+            const resultado = await livroRepository.deletar(LivroId);
             return resultado;
         } catch (error) {
             console.error(error);
@@ -52,7 +52,7 @@ const livroService = {
     },
     atualizarLivro: async (livro) => {
         try {
-            const resultado = await livroRepository.atualizar(user.id, user.titulo, user.isbn, user.Ano_publicacao, user.quantidade,disponivel);
+            const resultado = await livroRepository.atualizar(livro.id, livro.titulo, livro.isbn, livro.Ano_publicacao, livro.quantidade_disponivel);
             return resultado;
         } catch (error) {
             console.error(error);

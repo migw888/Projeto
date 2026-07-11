@@ -27,7 +27,7 @@ const livroRepository = {
         return resultado[0];
     },
     atualizar: async (LivroId, titulo, isbn, Ano_publicacao, quantidade_disponivel) => {
-        const sql = 'UPDATE livro SET titulo = ?, isbn = ?, Ano_publicacao = ? quantidade_disponivel = ? WHERE id = ?;';
+        const sql = 'UPDATE livro SET titulo = ?, isbn = ?, Ano_publicacao = ?, quantidade_disponivel = ? WHERE id = ?;';
         const resultado = await pool.execute(sql, [titulo, isbn, Ano_publicacao, quantidade_disponivel, LivroId]);
         return resultado[0];
     }
