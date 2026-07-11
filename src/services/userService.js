@@ -52,7 +52,7 @@ const userService = {
     },
     atualizarUsuario: async (user) => {
         try {
-            const resultado = await userRepository.atualizar(user.id, user.name, user.email, user.password);
+            const resultado = await userRepository.atualizar(user.id, user.nome, user.email, user.telefone, user.cpf);
             return resultado;
         } catch (error) {
             console.error(error);

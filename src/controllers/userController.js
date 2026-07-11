@@ -10,12 +10,12 @@ const userController = {
             res.status(200).json({
                 message: "Usuários recuperados com sucesso",
                 data: resultado
-            });
+            });     x
         }
         catch (error) {
             console.error(error);
             res.status(500).json({
-                message: "Erro ao recuperar usuários",
+                message: "recuperar usuários",
                 error: error.message
             });
         }
@@ -73,7 +73,7 @@ const userController = {
 
         try {
             // validação simples para garantir que name e email não estejam vazios
-            if (nome.trim() === "" || email.trim() === "" || cpf.trim() === "" || telefone.trim() === "") {
+            if (nome.trim() === "" || email.trim() === "" || cpf.trim() === "" || cpf.length < 11 || telefone.trim() === "") {
                 return res.status(400).json({
                     message: "Nome, email telefone e cpf são obrigatórios"
                 });
@@ -104,7 +104,7 @@ const userController = {
 
         try {
             // validação simples para garantir que name e email não estejam vazios
-            if (nome.trim() === "" || email.trim() === "" || cpf.trim() === "" || telefone.trim() === "") {
+            if (nome.trim() === "" || email.trim() === "" || cpf.trim() === "" || cpf.length < 11 || telefone.trim() === "") {
                 return res.status(400).json({
                     message: "Nome, email e senha são obrigatórios"
                 });

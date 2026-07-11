@@ -2,17 +2,17 @@ import pool from '../configs/Database.js';
 
 const userRepository = {
     selecionar: async () => {
-        const sql = 'SELECT id, name, email, password FROM users ORDER BY id DESC;';
+        const sql = 'SELECT id, nome, email, cpf, telefone FROM usuario ORDER BY id DESC;';
         const rows = await pool.execute(sql);
         return rows[0];
     },
     selecionarPorId: async (userId) => {
-        const sql = 'SELECT id, name, email, password FROM users WHERE id = ?;';
+        const sql = 'SELECT nome, email, cpf, telefone FROM usuario WHERE id = ?;';
         const rows = await pool.execute(sql, [userId]);
         return rows[0];
     },
     selecionarPorEmail: async (email) => {
-        const sql = 'SELECT id, name, email, password FROM users WHERE email = ?;';
+        const sql = 'SELECT nome, email, cpf, telefone FROM usuario WHERE email = ?;';
         const rows = await pool.execute(sql, [email]);
         return rows[0][0];
     },
@@ -26,9 +26,10 @@ const userRepository = {
         const resultado = await pool.execute(sql, [nome.trim(), email.trim(), cpf.trim(), telefone.trim()]);
         return resultado[0];
     },
-    atualizar: async (userId, nome, email, telefone) => {
-        const sql = 'UPDATE users SET name = ?, email = ?, telefone = ? WHERE id = ?;';
-        const resultado = await pool.execute(sql, [nome.trim(), email.trim(), cpf.trim(), telefone.trim()]);
+    atualizar: async (userId, nome, email, telefone, cpf) => {
+        console.log (userId, nome, email, telefone, cpf)
+        const sql = 'UPDATE usuario SET nome = ?, email = ?, telefone = ?, cpf = ? WHERE id = ?;';
+        const resultado = await pool.execute(sql, [nome.trim(), email.trim(), telefone.trim(), cpf.trim(), userId]);
         return resultado[0];
     }
 }
